@@ -4,7 +4,7 @@ COSMOS_NODE_PATH=$HOME/$COSMOS_NODE_FOLDER
 echo "export COSMOS_NODE_PATH=$HOME/$COSMOS_NODE_FOLDER" >> $HOME/$COSMOS_PROFILE_FILE_NAME
 
 if [ ! -z "$COSMOS_NODE_BINARY_URL" ]; then
-    sudo wget $COSMOS_NODE_BINARY_URL -P /usr/bin/$COSMOS_BINARY
+    sudo wget -O /usr/bin/$COSMOS_BINARY $COSMOS_NODE_BINARY_URL
     sudo chmod +x /usr/bin/$COSMOS_BINARY
 elif [ ! -z "$COSMOS_NODE_REPOSITORY_URL" ]; then
     git clone $COSMOS_NODE_REPOSITORY_URL && cd $(basename $_ .git)
@@ -109,9 +109,4 @@ sudo systemctl daemon-reload && \
 sudo systemctl enable $COSMOS_SERVICE_NAME && \
 sudo systemctl restart $COSMOS_SERVICE_NAME
 
-mkdir $HOME/cosmos_scripts
-echo "alias cosmos_logs=\"journalctl -u $COSMOS_SERVICE_NAME -f -o cat\"" >> $HOME/$COSMOS_PROFILE_FILE_NAME && \
-echo "alias cosmos_status=\"curl -s $COSMOS_NODE_ADDR/status\"" >> $HOME/$COSMOS_PROFILE_FILE_NAME && \
-echo "alias cosmos_consensus=\"curl -s $COSMOS_NODE_ADDR/consensus_state  | jq '.result.round_state.height_vote_set[0].prevotes_bit_array'\"" >> $HOME/$COSMOS_PROFILE_FILE_NAME && \
-echo "alias cosmos_gov_vote=\"$HOME/cosmos_scripts/gov_vote.sh\"" >> $HOME/$COSMOS_PROFILE_FILE_NAME && \
-source $HOME/$COSMOS_PROFILE_FILE_NAME
+bash <(curl -s https://raw.githubusercontent.com/stasjara/bash-scripts/master/cosmos/install_commands.sh)
