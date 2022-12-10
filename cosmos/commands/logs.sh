@@ -1,0 +1,1 @@
+journalctl -u $COSMOS_SERVICE_NAME -fo cat
