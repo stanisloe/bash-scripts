@@ -1,5 +1,5 @@
-install_script_url="https://raw.githubusercontent.com/stasjara/bash-scripts/master/general/insert_variable.sh"
-
+touch $HOME/$COSMOS_PROFILE_FILE_NAME && \
+install_script_url="https://raw.githubusercontent.com/stasjara/bash-scripts/master/general/insert_variable.sh" && \
 bash <(curl -s $install_script_url) \
     -n COSMOS_PROFILE_FILE_NAME -v "$COSMOS_PROFILE_FILE_NAME" -f $COSMOS_PROFILE_FILE_NAME && \
 bash <(curl -s $install_script_url) \
@@ -20,6 +20,10 @@ bash <(curl -s $install_script_url) \
     -n COSMOS_BINARY -v "$COSMOS_BINARY" -f $COSMOS_PROFILE_FILE_NAME && \
 bash <(curl -s $install_script_url) \
     -n COSMOS_CHAIN -v "$COSMOS_CHAIN" -f $COSMOS_PROFILE_FILE_NAME && \
+bash <(curl -s $install_script_url) \
+    -n COSMOS_VALOPER -v "$COSMOS_VALOPER" -f $COSMOS_PROFILE_FILE_NAME && \
+bash <(curl -s $install_script_url) \
+    -n COSMOS_WALLET_ADDRESS -v "$COSMOS_WALLET_ADDRESS" -f $COSMOS_PROFILE_FILE_NAME && \
 bash <(curl -s $install_script_url) \
     -n COSMOS_TOKEN -v "$COSMOS_TOKEN" -f $COSMOS_PROFILE_FILE_NAME && \
 bash <(curl -s $install_script_url) \
@@ -46,7 +50,8 @@ bash <(curl -s $install_script_url) \
     -n COSMOS_GENESIS_URL -v "$COSMOS_GENESIS_URL" -f $COSMOS_PROFILE_FILE_NAME && \
 bash <(curl -s $install_script_url) \
     -n COSMOS_ADDRBOOK_URL -v "$COSMOS_ADDRBOOK_URL" -f $COSMOS_PROFILE_FILE_NAME && \
-
-sed -i "/$COSMOS_PROFILE_FILE_NAME/d" ./.bash_profile && \
+bash <(curl -s $install_script_url) \
+    -n COSMOS_SERVICE_NAME -v "$COSMOS_SERVICE_NAME" -f $COSMOS_PROFILE_FILE_NAME && \
+sed -i "/$COSMOS_PROFILE_FILE_NAME/d" $HOME/.bash_profile && \
 echo "source $HOME/$COSMOS_PROFILE_FILE_NAME" >> $HOME/.bash_profile && \
 source "$HOME/$COSMOS_PROFILE_FILE_NAME"
