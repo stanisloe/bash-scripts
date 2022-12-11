@@ -4,7 +4,6 @@ mkdir $HOME/cosmos_scripts
 github_command_url="https://raw.githubusercontent.com/stasjara/bash-scripts/master/cosmos/commands/"
 declare -a command_names=(
     gov_vote
-    logs
     restart
 )
 for command_name in "${command_names[@]}"
