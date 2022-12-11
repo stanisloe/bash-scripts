@@ -1,4 +1,4 @@
-install_script_url = "https://raw.githubusercontent.com/stasjara/bash-scripts/master/general/insert_variable.sh"
+install_script_url="https://raw.githubusercontent.com/stasjara/bash-scripts/master/general/insert_variable.sh"
 
 bash <(curl -s $install_script_url) \
     -n COSMOS_PROFILE_FILE_NAME -v "$COSMOS_PROFILE_FILE_NAME" -f $COSMOS_PROFILE_FILE_NAME && \
