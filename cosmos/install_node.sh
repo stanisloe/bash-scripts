@@ -6,7 +6,7 @@ bash <(curl -s https://raw.githubusercontent.com/stasjara/bash-scripts/master/co
 bash <(curl -s https://raw.githubusercontent.com/stasjara/bash-scripts/master/cosmos/install_cosmovisor.sh)
 bash <(curl -s https://raw.githubusercontent.com/stasjara/bash-scripts/master/cosmos/install_commands.sh)
 
-source $HOME/$COSMOS_VARIABLES_PROFILE
+source $HOME/$COSMOS_PROFILE_FILE_NAME
 
 sudo systemctl daemon-reload && \
 sudo systemctl enable $COSMOS_SERVICE_NAME && \

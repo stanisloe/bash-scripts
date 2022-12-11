@@ -1,5 +1,7 @@
 COSMOS_SERVICE_NAME=$COSMOS_BINARY-cosmovisor.service
-echo "export COSMOS_SERVICE_NAME=$COSMOS_SERVICE_NAME" >> $HOME/$COSMOS_VARIABLES_PROFILE
+
+bash <(curl -s https://raw.githubusercontent.com/stasjara/bash-scripts/master/general/insert_variable.sh) \
+    -n COSMOS_SERVICE_NAME -v "$COSMOS_BINARY-cosmovisor.service" -f $HOME/$COSMOS_PROFILE_FILE_NAME
 
 go install github.com/cosmos/cosmos-sdk/cosmovisor/cmd/cosmovisor@latest
 export DAEMON_NAME=$COSMOS_BINARY
