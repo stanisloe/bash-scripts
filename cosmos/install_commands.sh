@@ -14,14 +14,14 @@ do
     wget -O $command_path "$github_command_url/$command_file"
     chmod +x $command_path
     bash <(curl -s https://raw.githubusercontent.com/stasjara/bash-scripts/master/general/insert_variable.sh) \
-        -a -n cosmos_$command_name -v "$command_path" -f $HOME/$COSMOS_PROFILE_FILE_NAME
+        -a -n cosmos_$command_name -v "$command_path" -f $COSMOS_PROFILE_FILE_NAME
 done
 
 bash <(curl -s https://raw.githubusercontent.com/stasjara/bash-scripts/master/general/insert_variable.sh) \
-    -a -n cosmos_logs -v "journalctl -u $COSMOS_SERVICE_NAME -f -o cat" -f $HOME/$COSMOS_PROFILE_FILE_NAME
+    -a -n cosmos_logs -v "journalctl -u $COSMOS_SERVICE_NAME -f -o cat" -f $COSMOS_PROFILE_FILE_NAME
 bash <(curl -s https://raw.githubusercontent.com/stasjara/bash-scripts/master/general/insert_variable.sh) \
-    -a -n cosmos_status -v "curl -s $COSMOS_NODE_ADDR/status" -f $HOME/$COSMOS_PROFILE_FILE_NAME
+    -a -n cosmos_status -v "curl -s $COSMOS_NODE_ADDR/status" -f $COSMOS_PROFILE_FILE_NAME
 bash <(curl -s https://raw.githubusercontent.com/stasjara/bash-scripts/master/general/insert_variable.sh) \
-    -a -n cosmos_consensus -v "curl -s $COSMOS_NODE_ADDR/consensus_state  | jq '.result.round_state.height_vote_set[0].prevotes_bit_array'" -f $HOME/$COSMOS_PROFILE_FILE_NAME
+    -a -n cosmos_consensus -v "curl -s $COSMOS_NODE_ADDR/consensus_state  | jq '.result.round_state.height_vote_set[0].prevotes_bit_array'" -f $COSMOS_PROFILE_FILE_NAME
 
 source $HOME/$COSMOS_PROFILE_FILE_NAME
