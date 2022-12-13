@@ -1,0 +1,12 @@
+$COSMOS_BINARY tx staking create-validator \
+--chain-id $COSMOS_CHAIN \
+--commission-rate 0.05 \
+--commission-max-rate 0.2 \
+--commission-max-change-rate 0.1 \
+--min-self-delegation "1" \
+--amount 1000000$COSMOS_TOKEN \
+--pubkey $($COSMOS_BINARY tendermint show-validator) \
+--moniker "$COSMOS_MONIKER" \
+--from $COSMOS_WALLET \
+--fees 5000$COSMOS_TOKEN \
+--gas auto
