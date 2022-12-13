@@ -29,7 +29,7 @@ bash <(curl -s $install_script_url) \
 bash <(curl -s $install_script_url) \
     -n COSMOS_NODE_FOLDER -v "$COSMOS_NODE_FOLDER" -f $COSMOS_PROFILE_FILE_NAME && \
 bash <(curl -s $install_script_url) \
-    -n COSMOS_NODE_PATH -v "$HOME/$COSMOS_NODE_PATH" -f $COSMOS_PROFILE_FILE_NAME && \
+    -n COSMOS_NODE_PATH -v "$HOME/$COSMOS_NODE_FOLDER" -f $COSMOS_PROFILE_FILE_NAME && \
 bash <(curl -s $install_script_url) \
     -n COSMOS_NODE_BINARY_URL -v "$COSMOS_NODE_BINARY_URL" -f $COSMOS_PROFILE_FILE_NAME && \
 bash <(curl -s $install_script_url) \
