@@ -18,7 +18,7 @@ echo "Cosmos binary version is:" && $COSMOS_BINARY version
 
 $COSMOS_BINARY init $COSMOS_MONIKER --chain-id $COSMOS_CHAIN && \
 $COSMOS_BINARY config chain-id $COSMOS_CHAIN && \
-$COSMOS_BINARY config keyring-backend test && \
+$COSMOS_BINARY config keyring-backend os && \
 $COSMOS_BINARY config node tcp://$COSMOS_NODE_ADDR
 
 sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$COSMOS_PEERS\"/; s/^seeds *=.*/seeds = \"$COSMOS_SEEDS\"/" $COSMOS_NODE_PATH/config/config.toml
