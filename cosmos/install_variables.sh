@@ -27,6 +27,8 @@ bash <(curl -s $install_script_url) \
 bash <(curl -s $install_script_url) \
     -n COSMOS_TOKEN -v "$COSMOS_TOKEN" -f $COSMOS_PROFILE_FILE_NAME && \
 bash <(curl -s $install_script_url) \
+    -n COSMOS_FEE -v "$COSMOS_FEE" -f $COSMOS_PROFILE_FILE_NAME && \    
+bash <(curl -s $install_script_url) \
     -n COSMOS_NODE_FOLDER -v "$COSMOS_NODE_FOLDER" -f $COSMOS_PROFILE_FILE_NAME && \
 bash <(curl -s $install_script_url) \
     -n COSMOS_NODE_PATH -v "$HOME/$COSMOS_NODE_FOLDER" -f $COSMOS_PROFILE_FILE_NAME && \
