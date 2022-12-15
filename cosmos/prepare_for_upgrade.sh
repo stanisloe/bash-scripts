@@ -14,7 +14,7 @@ fi
 
 wget -O $HOME/$COSMOS_BINARY $BINARY_URL
 sudo chmod +x $HOME/$COSMOS_BINARY
-mv $HOME/$COSMOS_BINARY $(which $COSMOS_BINARY)
+sudo mv $HOME/$COSMOS_BINARY $(which $COSMOS_BINARY)
 $COSMOS_BINARY version
 
 upgrade_path=$HOME/$COSMOS_NODE_FOLDER/cosmovisor/upgrades/$UPGRADE_NAME/bin
