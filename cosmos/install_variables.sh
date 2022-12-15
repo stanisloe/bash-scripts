@@ -3,7 +3,7 @@ install_script_url="https://raw.githubusercontent.com/stasjara/bash-scripts/mast
 bash <(curl -s $install_script_url) \
     -n COSMOS_PROFILE_FILE_NAME -v "$COSMOS_PROFILE_FILE_NAME" -f $COSMOS_PROFILE_FILE_NAME && \
 bash <(curl -s $install_script_url) \
-    -n COSMOS_PROFILE_PATH -v "$COSMOS_PROFILE_PATH" -f $COSMOS_PROFILE_FILE_NAME && \
+    -n COSMOS_PROFILE_PATH -v "$HOME/$COSMOS_PROFILE_FILE_NAME" -f $COSMOS_PROFILE_FILE_NAME && \
 bash <(curl -s $install_script_url) \
     -n COSMOS_MONIKER -v "$COSMOS_MONIKER" -f $COSMOS_PROFILE_FILE_NAME && \
 bash <(curl -s $install_script_url) \
