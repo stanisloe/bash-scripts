@@ -5,6 +5,7 @@ github_command_url="https://raw.githubusercontent.com/stasjara/bash-scripts/mast
 declare -a command_names=(
     gov_vote
     restart
+    self_delegate
 )
 for command_name in "${command_names[@]}"
 do
