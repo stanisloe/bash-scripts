@@ -23,5 +23,6 @@ bash <(curl -s https://raw.githubusercontent.com/stasjara/bash-scripts/master/ge
     -a -n cosmos_status -v "curl -s $COSMOS_NODE_ADDR/status" -f $COSMOS_PROFILE_FILE_NAME
 bash <(curl -s https://raw.githubusercontent.com/stasjara/bash-scripts/master/general/insert_variable.sh) \
     -a -n cosmos_consensus -v "curl -s $COSMOS_NODE_ADDR/consensus_state  | jq '.result.round_state.height_vote_set[0].prevotes_bit_array'" -f $COSMOS_PROFILE_FILE_NAME
-
+bash <(curl -s https://raw.githubusercontent.com/stasjara/bash-scripts/master/general/insert_variable.sh) \
+    -a -n cosmos_balance -v "$COSMOS_BINARY q bank balances $COSMOS_WALLET_ADDRESS" -f $COSMOS_PROFILE_FILE_NAME
 source $HOME/$COSMOS_PROFILE_FILE_NAME
