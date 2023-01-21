@@ -16,7 +16,7 @@ fi
 
 echo "Cosmos binary version is:" && $COSMOS_BINARY version
 
-$COSMOS_BINARY init $COSMOS_MONIKER --chain-id $COSMOS_CHAIN && \
+$COSMOS_BINARY init "$COSMOS_MONIKER" --chain-id $COSMOS_CHAIN && \
 $COSMOS_BINARY config chain-id $COSMOS_CHAIN && \
 $COSMOS_BINARY config keyring-backend os && \
 $COSMOS_BINARY config node tcp://$COSMOS_NODE_ADDR
