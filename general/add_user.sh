@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-
 USER_NAME=$1
 
 if [ -z "$USER_NAME" ];

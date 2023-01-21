@@ -1,5 +1,9 @@
 $COSMOS_BINARY tx staking create-validator \
 --chain-id $COSMOS_CHAIN \
+--website="$COSMOS_WEBSITE" \
+--details="$COSMOS_DETAILS" \
+--security-contact="$COSMOS_SECURITY_CONTACT" \
+--identity="$COSMOS_IDENTITY" \
 --commission-rate 0.05 \
 --commission-max-rate 0.2 \
 --commission-max-change-rate 0.1 \
@@ -9,4 +13,5 @@ $COSMOS_BINARY tx staking create-validator \
 --moniker "$COSMOS_MONIKER" \
 --from $COSMOS_WALLET \
 --fees 5000$COSMOS_TOKEN \
---gas auto
+--gas auto \
+-y

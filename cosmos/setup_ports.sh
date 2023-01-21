@@ -11,4 +11,5 @@ s%^address = \":8080\"%address = \":$((COSMOS_NODE_ID+8))080\"%; \
 s%^address = \"0.0.0.0:9090\"%address = \"0.0.0.0:$((COSMOS_NODE_ID+9))090\"%; \
 s%^address = \"0.0.0.0:8545\"%address = \"0.0.0.0:$((COSMOS_NODE_ID+8))545\"%; \
 s%^ws-address = \"0.0.0.0:854\"%ws-address = \"0.0.0.0:$((COSMOS_NODE_ID+8))546\"%; \
-s%^address = \"0.0.0.0:9091\"%address = \"0.0.0.0:$((COSMOS_NODE_ID+9))091\"%" $COSMOS_NODE_PATH/config/app.toml
+s%^address = \"0.0.0.0:9091\"%address = \"0.0.0.0:$((COSMOS_NODE_ID+9))091\"%" $COSMOS_NODE_PATH/config/app.toml && \
+$COSMOS_BINARY config node tcp://$COSMOS_NODE_ADDR
