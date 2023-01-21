@@ -54,6 +54,8 @@ bash <(curl -s $install_script_url) \
     -n COSMOS_ADDRBOOK_URL -v "$COSMOS_ADDRBOOK_URL" -f $COSMOS_PROFILE_FILE_NAME && \
 bash <(curl -s $install_script_url) \
     -n COSMOS_SERVICE_NAME -v "$COSMOS_SERVICE_NAME" -f $COSMOS_PROFILE_FILE_NAME && \
+bash <(curl -s $install_script_url) \
+    -n COSMOS_STATE_SYNC_RPC -v "$COSMOS_STATE_SYNC_RPC" -f $COSMOS_PROFILE_FILE_NAME && \
 sed -i "/$COSMOS_PROFILE_FILE_NAME/d" $HOME/.bash_profile && \
 echo "source $HOME/$COSMOS_PROFILE_FILE_NAME" >> $HOME/.bash_profile && \
 source "$HOME/$COSMOS_PROFILE_FILE_NAME"
