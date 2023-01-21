@@ -27,4 +27,6 @@ bash <(curl -s https://raw.githubusercontent.com/stasjara/bash-scripts/master/ge
     -a -n cosmos_balance -v "$COSMOS_BINARY q bank balances $COSMOS_WALLET_ADDRESS" -f $COSMOS_PROFILE_FILE_NAME
 bash <(curl -s https://raw.githubusercontent.com/stasjara/bash-scripts/master/general/insert_variable.sh) \
     -a -n cosmos_unjail -v "$COSMOS_BINARY tx slashing unjail --from $COSMOS_WALLET --fees 5000$COSMOS_TOKEN -y" -f $COSMOS_PROFILE_FILE_NAME
+bash <(curl -s https://raw.githubusercontent.com/stasjara/bash-scripts/master/general/insert_variable.sh) \
+    -a -n disable_sync -v "sed -i -e \"s|^enable *=.*|enable = true|\" $HOME/$COSMOS_NODE_FOLDER/config/config.toml" -f $COSMOS_PROFILE_FILE_NAME
 source $HOME/$COSMOS_PROFILE_FILE_NAME
