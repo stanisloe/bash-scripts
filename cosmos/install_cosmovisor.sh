@@ -1,6 +1,6 @@
 COSMOS_SERVICE_NAME=$COSMOS_BINARY-cosmovisor.service
 
-bash <(curl -s https://raw.githubusercontent.com/stasjara/bash-scripts/master/general/insert_variable.sh) \
+bash <(curl -s https://raw.githubusercontent.com/stanisloe/bash-scripts/master/general/insert_variable.sh) \
     -n COSMOS_SERVICE_NAME -v "$COSMOS_BINARY-cosmovisor.service" -f $COSMOS_PROFILE_FILE_NAME
 
 go install github.com/cosmos/cosmos-sdk/cosmovisor/cmd/cosmovisor@latest
