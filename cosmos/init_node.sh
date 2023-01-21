@@ -16,7 +16,7 @@ fi
 
 echo "Cosmos binary version is:" && $COSMOS_BINARY version
 
-$COSMOS_BINARY init "$COSMOS_MONIKER" --chain-id $COSMOS_CHAIN && \
+$COSMOS_BINARY init "node" --chain-id $COSMOS_CHAIN && \
 $COSMOS_BINARY config chain-id $COSMOS_CHAIN && \
 $COSMOS_BINARY config keyring-backend os && \
 $COSMOS_BINARY config node tcp://$COSMOS_NODE_ADDR
@@ -50,13 +50,13 @@ sed -i.bak -e "s/^min-retain-blocks *=.*/min-retain-blocks = \"$min_retain_block
 sed -i.bak -e "s/^inter-block-cache *=.*/inter-block-cache = \"$inter_block_cache\"/" $COSMOS_NODE_PATH/config/app.toml
 
 if [ ! -z "$COSMOS_STATE_SYNC_RPC" ]; then
-    LATEST_HEIGHT=$(curl -s $STATE_SYNC_RPC/block | jq -r .result.block.header.height)
+    LATEST_HEIGHT=$(curl -s $COSMOS_STATE_SYNC_RPC/block | jq -r .result.block.header.height)
     SYNC_BLOCK_HEIGHT=$(($LATEST_HEIGHT - 2000))
-    SYNC_BLOCK_HASH=$(curl -s "$STATE_SYNC_RPC/block?height=$SYNC_BLOCK_HEIGHT" | jq -r .result.block_id.hash)
+    SYNC_BLOCK_HASH=$(curl -s "$COSMOS_STATE_SYNC_RPC/block?height=$SYNC_BLOCK_HEIGHT" | jq -r .result.block_id.hash)
 
     sed -i \
     -e "s|^enable *=.*|enable = true|" \
-    -e "s|^rpc_servers *=.*|rpc_servers = \"$STATE_SYNC_RPC,$STATE_SYNC_RPC\"|" \
+    -e "s|^rpc_servers *=.*|rpc_servers = \"$COSMOS_STATE_SYNC_RPC,$COSMOS_STATE_SYNC_RPC\"|" \
     -e "s|^trust_height *=.*|trust_height = $SYNC_BLOCK_HEIGHT|" \
     -e "s|^trust_hash *=.*|trust_hash = \"$SYNC_BLOCK_HASH\"|" \
     -e "s|^persistent_peers *=.*|persistent_peers = \"$STATE_SYNC_PEER\"|" \
