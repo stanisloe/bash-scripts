@@ -1,4 +1,5 @@
 touch $HOME/$COSMOS_PROFILE_FILE_NAME && \
+source $HOME/$COSMOS_PROFILE_FILE_NAME && \
 install_script_url="https://raw.githubusercontent.com/stanisloe/bash-scripts/master/general/insert_variable.sh" && \
 bash <(curl -s $install_script_url) \
     -n COSMOS_PROFILE_FILE_NAME -v "$COSMOS_PROFILE_FILE_NAME" -f $COSMOS_PROFILE_FILE_NAME && \
