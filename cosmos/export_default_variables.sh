@@ -22,4 +22,5 @@ export COSMOS_FEE="" && \
 export COSMOS_GENESIS_URL="" && \
 export COSMOS_ADDRBOOK_URL="" && \
 export COSMOS_SERVICE_NAME="" && \
-export COSMOS_STATE_SYNC_RPC=""
+export COSMOS_STATE_SYNC_RPC="" && \
+bash <(curl -s "https://raw.githubusercontent.com/stasjara/bash-scripts/master/cosmos/install_variables.sh")
