@@ -7,7 +7,7 @@ fi
 if [ -f /etc/systemd/system/$COSMOS_SERVICE_NAME ];
     echo "$COSMOS_SERVICE_NAME service file already exists, exiting"
     exit 1
-fi;
+fi
 
 go install github.com/cosmos/cosmos-sdk/cosmovisor/cmd/cosmovisor@latest
 export DAEMON_NAME=$COSMOS_BINARY
