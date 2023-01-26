@@ -50,10 +50,9 @@ sed -i.bak -e "s/^min-retain-blocks *=.*/min-retain-blocks = \"$min_retain_block
 sed -i.bak -e "s/^inter-block-cache *=.*/inter-block-cache = \"$inter_block_cache\"/" $COSMOS_NODE_PATH/config/app.toml
 
 if [ ! -z "$COSMOS_STATE_SYNC_RPC" ]; then
-    LATEST_HEIGHT=$(curl -s $COSMOS_STATE_SYNC_RPC/block | jq -r .result.block.header.height)
-    SYNC_BLOCK_HEIGHT=$(($LATEST_HEIGHT - 2000))
-    SYNC_BLOCK_HASH=$(curl -s "$COSMOS_STATE_SYNC_RPC/block?height=$SYNC_BLOCK_HEIGHT" | jq -r .result.block_id.hash)
-
+    LATEST_HEIGHT=$(curl -s $COSMOS_STATE_SYNC_RPC/block | jq -r .result.block.header.height) && \
+    SYNC_BLOCK_HEIGHT=$(($LATEST_HEIGHT - 2000)) && \
+    SYNC_BLOCK_HASH=$(curl -s "$COSMOS_STATE_SYNC_RPC/block?height=$SYNC_BLOCK_HEIGHT" | jq -r .result.block_id.hash) && \
     sed -i \
     -e "s|^enable *=.*|enable = true|" \
     -e "s|^rpc_servers *=.*|rpc_servers = \"$COSMOS_STATE_SYNC_RPC,$COSMOS_STATE_SYNC_RPC\"|" \
