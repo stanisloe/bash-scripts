@@ -27,14 +27,14 @@ for filename in $HOME/$SNAPSHOTS_DIR/*.gz; do
     fi
 done
 
-sleep 60
+sleep 100
 
-is_catching_up=$(curl -s $COSMOS_NODE_ADDR/status | jq -r '.result.sync_info.catching_up')
+is_catching_up=$(/usr/bin/curl -s $COSMOS_NODE_ADDR/status | jq -r '.result.sync_info.catching_up')
 echo "Catching up status $is_catching_up"
+/usr/bin/curl -fsS -m 10 --retry 5 -o /dev/null "https://hc-ping.com/$HEALTH_CHECK_ID"
 
 if [ "$is_catching_up" == "false" ]; then
     echo "Node is synced"
-    #/usr/bin/curl -fsS -m 10 --retry 5 -o /dev/null "https://hc-ping.com/$HEALTH_CHECK_ID"
 else
     echo "Node is still catching up"
 fi
