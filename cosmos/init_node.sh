@@ -1,3 +1,5 @@
+echo "Start init node"
+
 if [ ! -z "$COSMOS_NODE_BINARY_URL" ]; then
     sudo wget -O /usr/bin/$COSMOS_BINARY $COSMOS_NODE_BINARY_URL
     sudo chmod +x /usr/bin/$COSMOS_BINARY

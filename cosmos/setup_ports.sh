@@ -1,3 +1,5 @@
+echo "Start setup ports"
+
 sed -i.bak -e "\
 s%^proxy_app = \"tcp://127.0.0.1:26658\"%proxy_app = \"tcp://127.0.0.1:$((COSMOS_NODE_ID+26))658\"%; \
 s%^laddr = \"tcp://127.0.0.1:26657\"%laddr = \"tcp://$COSMOS_NODE_ADDR\"%; \

@@ -1,3 +1,5 @@
+echo "Start install commands"
+
 rm -rf $HOME/cosmos_scripts
 mkdir $HOME/cosmos_scripts
 
