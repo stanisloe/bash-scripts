@@ -4,7 +4,7 @@ bash <(curl -s https://raw.githubusercontent.com/stanisloe/bash-scripts/master/c
 bash <(curl -s https://raw.githubusercontent.com/stanisloe/bash-scripts/master/cosmos/setup_ports.sh)
 bash <(curl -s https://raw.githubusercontent.com/stanisloe/bash-scripts/master/cosmos/add_wallet.sh)
 source $HOME/$COSMOS_PROFILE_FILE_NAME
-bash <(curl -s https://raw.githubusercontent.com/stanisloe/bash-scripts/master/cosmos/install_cosmovisor_2.sh)
+bash <(curl -s https://raw.githubusercontent.com/stanisloe/bash-scripts/master/cosmos/install_cosmovisor.sh)
 source $HOME/$COSMOS_PROFILE_FILE_NAME
 bash <(curl -s https://raw.githubusercontent.com/stanisloe/bash-scripts/master/cosmos/install_commands.sh)
 
