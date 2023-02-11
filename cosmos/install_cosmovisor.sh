@@ -1,5 +1,5 @@
 echo "Start cosmovisor install"
-if [ ! -z "$COSMOS_SERVICE_NAME" ]; then
+if [ -z "$COSMOS_SERVICE_NAME" ]; then
     COSMOS_SERVICE_NAME=$COSMOS_BINARY-cosmovisor.service
     bash <(curl -s https://raw.githubusercontent.com/stanisloe/bash-scripts/master/general/insert_variable.sh) \
     -n COSMOS_SERVICE_NAME -v "$COSMOS_BINARY-cosmovisor.service" -f $COSMOS_PROFILE_FILE_NAME
