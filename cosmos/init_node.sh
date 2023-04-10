@@ -37,9 +37,9 @@ fi
 indexer="null" && \
 snapshot_interval="1000" && \
 pruning="custom" && \
-pruning_keep_recent="1000" && \
+pruning_keep_recent="100" && \
 pruning_keep_every="0" && \
-pruning_interval="100" && \
+pruning_interval="10" && \
 min_retain_blocks="1" && \
 inter_block_cache="false" && \
 sed -i.bak -e "s/^indexer *=.*/indexer = \"$indexer\"/" $COSMOS_NODE_PATH/config/config.toml && \
